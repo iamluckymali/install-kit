@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Kit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css">
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #FF7900;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class="bg-secondary px-0.5 text-lightgray font-inter">
+
+    <header class="p-2 bg-secondary border-b border-bcolor max-w-350 my-0 mx-auto sticky top-0">
+        <div class="grid grid-cols-2 md:grid-cols-3">
+            <!-- Logo -->
+            <div class="flex flex-row items-center gap-2">
+                <img src="assets/logo.png" alt="" class="h-12 object-cover w-10">
+                <div class="flex flex-col">
+                    <span class="text-white text-lg font-medium">Install<span class="text-orange">Kit</span></span>
+                    <span class="text-lightgray text-xs -mt-1">Build Faster,Smarter</span>
+                </div>
+            </div>
+
+            <!-- Desktop nav -->
+            <div class="md:flex justify-center items-center hidden">
+                <nav class="text-lightgray flex flex-row gap-12">
+                    <a href="#explore" class="relative group text-orange hover:text-white">Explore <span
+                            class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                    <a href="#tools" class="relative group active:text-orange hover:text-white">Categories<span
+                            class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                    <a href="#about" class="relative group active:text-orange hover:text-white">About<span
+                            class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                </nav>
+            </div>
+            <!-- Github -->
+            <div class="md:flex justify-end items-center hidden">
+                <a href="https://github.com/iamluckymali" target="_blank" class="group">
+                    <div
+                        class="flex flex-row items-center gap-2.5 px-5 py-2.5 rounded-lg border group-hover:bg-white border-bcolor">
+                        <i class="fa-brands fa-github text-2xl group-hover:text-black"></i>
+                        <span class="font-medium group-hover:text-black">Github</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-lightgray group-hover:text-black"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="flex md:hidden justify-end items-center">
+                <button id="barBtn">
+                    <i class="fa-solid fa-bars text-2xl mr-2"></i>
+                </button>
+            </div>
+            <div id="overlay"
+                class="fixed inset-0 bg-black/60 z-40 opacity-0 transition-opacity duration-300 md:hidden pointer-events-none">
+            </div>
+
+            <!-- Mobile Nav -->
+            <aside
+                class="fixed top-0 right-0 h-full w-52 border-l border-bcolor z-50 transform transition-transform translate-x-full duration-500 ease-in-out flex flex-col p-6 bg-secondary"
+                id="sidebar">
+                <div class="flex justify-end mb-6">
+                    <button id="closeBtn" class="text-lightgray active:text-white">
+                        <span class="text-3xl font-light">&times;</span>
+                    </button>
+                </div>
+                <nav class="text-lightgray flex flex-col gap-10">
+                    <div class="flex flex-row items-center gap-3">
+                        <div class="text-center w-6">
+                            <i class="fa-solid fa-house text-lg"></i>
+                        </div>
+                        <a href="#explore" class="relative group active:text-white">Explore <span
+                                class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                    </div>
+                    <div class="flex flex-row items-center gap-3">
+                        <div class="text-center w-6">
+                            <i class="fa-solid fa-layer-group text-lg"></i>
+                        </div>
+                        <a href="#tools" class="relative group active:text-white">Categories<span
+                                class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                    </div>
+                    <div class="flex flex-row items-center gap-3">
+                        <div class="text-center w-6">
+                            <i class="fa-solid fa-circle-info text-lg"></i>
+                        </div>
+                        <a href="#about" class="relative group active:text-white">About<span
+                                class="absolute left-0 top-6 h-0.5 w-0 group-hover:w-full group-active:w-full transition-all duration-500 bg-orange"></span></a>
+                    </div>
+                </nav>
+                <div class="md:hidden justify-center mt-auto flex">
+                    <a href="https://github.com/iamluckymali" target="_blank" class="group">
+                        <div
+                            class="flex flex-row items-center gap-2.5 px-5 py-2.5 rounded-lg border group-active:bg-white border-bcolor">
+                            <i class="fa-brands fa-github text-2xl group-active:text-black"></i>
+                            <span class="font-medium group-active:text-black">Github</span>
+                            <i
+                                class="fa-solid fa-arrow-up-right-from-square text-lightgray group-active:text-black"></i>
+                        </div>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+    <main>
+        <section id="explore" class="pt-20">
+            <div class="container">
+
+                <div class="flex lg:flex-row flex-col items-start justify-between gap-10">
+                    <div class="flex flex-col md:max-w-140 w-full mb-4">
+                        <span class="text-white text-5xl font-semibold">Every tool you need,</span>
+                        <span class="text-orange text-5xl font-semibold">one shelf away.</span>
+                        <p class="mt-4">Explore developer tools, frameworks and libraries.Get installation commands, CDN
+                            links and official documentation all in one place.</p>
+                        <div class="flex flex-row gap-5 mt-3.5">
+                            <a href="#tools"
+                                class="text-white inline-flex justify-center items-center w-36 h-14 font-semibold active:bg-amber-800 cursor-pointer rounded-md bg-orange">
+                                Explore Tools
+                            </a>
+                            <a href="#about"
+                                class="text-white inline-flex justify-center items-center w-36 h-14 font-semibold active:bg-white active:text-black cursor-pointer rounded-md border border-bcolor">
+                                How its works
+                            </a>
+                        </div>
+                        <div class="flex flex-col md:flex-row mt-5">
+                            <div class="flex flex-col p-7 border border-bcolor rounded-t-lg md:rounded-l-lg">
+                                <span class="text-white font-semibold text-xl">500+</span>
+                                <span class="text-xs font-mono font-light">Tools listed</span>
+                            </div>
+                            <div class="flex flex-col p-7 border border-bcolor">
+                                <span class="text-white font-semibold text-xl">12</span>
+                                <span class="text-xs font-mono font-light">Categories</span>
+                            </div>
+                            <div class="flex flex-col p-7 border border-bcolor">
+                                <span class="text-white font-semibold text-xl">1-Click</span>
+                                <span class="text-xs font-mono font-light">Copy commands</span>
+                            </div>
+                            <div class="flex flex-col p-7 border border-bcolor rounded-b-lg md:rounded-r-lg">
+                                <span class="text-white font-semibold text-xl">Weekly</span>
+                                <span class="text-xs font-mono font-light">New additions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col bg-card h-auto md:min-w-150 w-full items-start px-7 py-9 rounded-xl border border-bcolor ">
+                        <span class="text-xl font-semibold font-poppins text-white">Trending this week</span>
+                        <span class="font-light font-poppins">Most copied tools by developers right now.</span>
+                        <div class="flex flex-col gap-4 mt-3.5 w-full">
+
+                            <div
+                                class="flex flex-row items-center w-full gap-4 border border-bcolor bg-black rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-xl font-medium text-orange">Gs</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">GSAP</span>
+                                        <span class="text-sm -mt-0.5">Animation · +24% this week</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-center w-full gap-4 border border-bcolor bg-black rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-xl font-medium text-orange">Re</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">React</span>
+                                        <span class="text-sm -mt-0.5">Framework · most installed</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-center w-full gap-4 border border-bcolor bg-black rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-xl font-medium text-orange">Tw</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">Tailwind CSS</span>
+                                        <span class="text-sm -mt-0.5">CSS · +18% this week</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col mt-12">
+                    <h1 class="text-2xl text-white font-semibold">Browse by category</h1>
+                    <span class="text-sm font-light mt-1">Jump straight to the kind of tool you need.</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3.5 mt-4">
+                        <div class="border flex flex-col gap-2 border-bcolor w-full bg-card p-5 rounded-lg">
+                            <h1 class="text-white font-semibold">Frameworks</h1>
+                            <span class="text-xs font-light font-poppins">React, Vue, Next.js</span>
+                            <span class="text-xs text-orange mt-2">48 tools</span>
+                        </div>
+                        <div class="border flex flex-col gap-2 border-bcolor w-full bg-card p-5 rounded-lg">
+                            <h1 class="text-white font-semibold">Animation</h1>
+                            <span class="text-xs font-light font-poppins">GSAP, Framer Motion, Lottie</span>
+                            <span class="text-xs text-orange mt-2">26 tools</span>
+                        </div>
+                        <div class="border flex flex-col gap-2 border-bcolor w-full bg-card p-5 rounded-lg">
+                            <h1 class="text-white font-semibold">CSS</h1>
+                            <span class="text-xs font-light font-poppins">Tailwind, Bootstrap, UnoCSS</span>
+                            <span class="text-xs text-orange mt-2">31 tools</span>
+                        </div>
+                        <div class="border flex flex-col gap-2 border-bcolor w-full bg-card p-5 rounded-lg">
+                            <h1 class="text-white font-semibold">UI Components</h1>
+                            <span class="text-xs font-light font-poppins">shadcn/ui, MUI, Radix</span>
+                            <span class="text-xs text-orange mt-2">40 tools</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tools" class="pt-7">
+            <div class="container">
+                <div class="flex justify-between items-start gap-5 flex-col lg:flex-row">
+                    <div class="flex flex-col p-4 h-auto w-full md:min-w-145 bg-card border border-bcolor rounded-lg">
+                        <h1 class="text-white font-semibold text-xl">Popular Tools</h1>
+                        <h4 class="text-xs font-poppins font-light mt-1">What developers are installing this week.</h4>
+                        <div class="flex flex-col md:flex-row md:gap-2 gap-y-2 mt-5">
+                            <input type="search" name="search" id="search"
+                                class="border border-bcolor text-white w-full placeholder:text-xs rounded-lg bg-card focus:outline-none px-4 py-2"
+                                placeholder="Search libraries, frameworks, and tools...">
+                            <button id="searchBtn"
+                                class="h-12 md:w-28 font-bold font-quicksand text-white w-full active:bg-amber-800 bg-orange cursor-pointer rounded-lg">Search</button>
+                        </div>
+                        <div class="mt-4 grid grid-cols-2 md:flex md:flex-row gap-3">
+                            <button
+                                class="border border-bcolor rounded-full h-auto w-full md:w-16 py-0.5 cursor-pointer bg-orange text-white">All</button>
+                            <button
+                                class="border border-bcolor bg-card rounded-full h-auto w-full md:w-32 py-0.5 cursor-pointer active:bg-orange text-white">Frameworks</button>
+                            <button
+                                class="border border-bcolor bg-card rounded-full h-auto w-full md:w-28 py-0.5 cursor-pointer active:bg-orange text-white">Libraries</button>
+                            <button
+                                class="border border-bcolor bg-card rounded-full h-auto w-full md:w-20 py-0.5 cursor-pointer active:bg-orange text-white">CSS</button>
+                            <button
+                                class="border border-bcolor bg-card rounded-full h-auto w-full md:w-28 py-0.5 cursor-pointer active:bg-orange text-white">Animation</button>
+                        </div>
+                        <div class="flex flex-col mt-5">
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">Re</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">React</span>
+                                        <span class="text-xs font-poppins font-light">A JavaScript library for building
+                                            user interfaces.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-24 border border-bcolor rounded-full">Framework</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">Gs</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">GSAP</span>
+                                        <span class="text-xs font-poppins font-light">High-performance JavaScript
+                                            animation library.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-24 border border-bcolor rounded-full">Animation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">Tw</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">Tailwind CSS</span>
+                                        <span class="text-xs font-poppins font-light">A utility-first CSS
+                                            framework.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-12 border border-bcolor rounded-full">CSS</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">3D</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">Three.js</span>
+                                        <span class="text-xs font-poppins font-light">Production-ready motion library
+                                            for React.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-24 border border-bcolor rounded-full">Animation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">Ax</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">Axios</span>
+                                        <span class="text-xs font-poppins font-light">Promise based HTTP client for
+                                            browser and Node.js.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-24 border border-bcolor rounded-full">Library</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-center mt-4 gap-4 border border-bcolor bg-[#101010] rounded-xl p-2">
+                                <div class="bg-[#141313] h-12 w-14 rounded-md flex justify-center items-center"><span
+                                        class="text-base font-medium text-orange">Fm</span></div>
+                                <div class="flex flex-col md:flex-row gap-2 justify-between w-full md:items-center">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="font-semibold text-white">Framer Motion</span>
+                                        <span class="text-xs font-poppins font-light">Production-ready motion library
+                                            for React.</span>
+                                    </div>
+                                    <div class="flex items-center text-center">
+                                        <span
+                                            class="text-xs font-poppins h-auto py-0.5 w-24 border border-bcolor rounded-full">Animation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Part -->
+                    <div class="flex flex-col px-5 py-5 pb-12 h-auto max-h-175 overflow-y-auto w-full md:min-w-145 bg-card border border-bcolor rounded-lg">
+                        <div class="grid grid-cols-2 md:flex md:flex-row mb-5 gap-3">
+                            <button id="tailwind"
+                                class="border border-bcolor rounded-full h-auto w-full md:w-32 py-1 cursor-pointer bg-orange text-white">Tailwind
+                                CSS</button>
+                            <button id="ts"
+                                class="border border-bcolor rounded-full h-auto w-full md:w-32 py-1 cursor-pointer bg-orange text-white">Typescript</button>
+                            <button id="react"
+                                class="border border-bcolor rounded-full h-auto w-full md:w-32 py-1 cursor-pointer bg-orange text-white">React</button>
+                            <button id="gsap"
+                                class="border border-bcolor rounded-full h-auto w-full md:w-32 py-1 cursor-pointer bg-orange text-white">GSAP</button>
+                        </div>
+                        <div class="flex flex-col">
+                            <h1 class="text-2xl text-white font-semibold">Tailwind CSS</h1>
+                            <span class="text-sm font-light">Utility-first CSS framework for rapid UI
+                                development.</span>
+                            <div class="flex flex-col gap-6">
+
+                                <div class="mt-3 w-full">
+                                    <span class="text-white font-bold">1. Install</span>
+                                    <div
+                                        class="border border-bcolor rounded-lg w-full flex items-center mt-1.5 px-3 py-2">
+                                        <span class="text-sm font-light font-mono">npm install tailwindcss
+                                            @tailwindcss/cli</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-white font-bold">2. Create your input CSS file</span>
+                                    <span class="text-orange text-sm font-light">File: src/input.css</span>
+                                    <div
+                                        class="border border-bcolor rounded-lg w-full flex items-center mt-1.5 px-3 py-2">
+                                        <span class="text-sm font-light font-mono">@import "tailwindcss";</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-white font-bold">3. Start the build</span>
+                                    <div
+                                        class="border border-bcolor rounded-lg w-full flex items-center mt-1.5 px-3 py-2">
+                                        <span class="text-sm font-light font-mono">npx @tailwindcss/cli -i
+                                            ./src/input.css -o ./src/output.css --watch;</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-white font-bold">4. Link the output in your HTML</span>
+                                    <span class="text-orange text-sm font-light">File: index.html</span>
+
+                                    <div
+                                        class="border border-bcolor rounded-lg w-full flex flex-col mt-1.5 px-3 py-2">
+                                        <code
+                                            class="text-sm font-light font-mono">&lt;link href="./src/output.css" rel="stylesheet"&gt;</code>
+                                        <code
+                                            class="text-sm font-light font-mono">&lt;h1 class="text-3xl font-bold underline"&gt;Hello&lt;/h1&gt;</code>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-white font-bold">5. CDN (quick start, development only)</span>
+                                    <span class="text-orange text-sm font-light">File: index.html</span>
+
+                                    <div
+                                        class="border border-bcolor rounded-lg w-full flex flex-col mt-1.5 px-3 py-2">
+                                        <code
+                                            class="text-sm font-light font-mono">&lt;script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"&gt; &lt;/script&gt;</code>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="text-white mt-5 font-semibold font-poppins rounded-lg cursor-pointer bg-orange py-3 active:bg-amber-7text00 w-full">View Full Documentation</button>
+
+                    </div>
+                </div>
+
+                <div class="flex flex-col mt-16">
+                    <h1 class="text-white text-2xl font-inter font-semibold">Starter stacks</h1>
+                    <span class="text-sm font-light ">Ready-made combinations so you don't have to pick everything one by one.</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
+                        <div class="border border-bcolor p-5 bg-card md:w-auto w-full h-auto rounded-lg">
+                            <h3 class="text-white text-lg font-semibold">Landing Page</h3>
+                            <span class="text-sm font-light">Tailwind CSS + GSAP + Lenis for a fast, animated one-pager.</span>
+                            <div class="bg-black h-auto w-auto px-3 py-3 mt-2 border border-bcolor rounded-lg">
+                                <code class="font-mono font-light text-sm">npm i tailwindcss gsap lenis</code>
+                            </div>
+                        </div>
+
+                        <div class="border border-bcolor p-5 bg-card md:w-auto w-full h-auto rounded-lg">
+                            <h3 class="text-white text-lg font-semibold">React app</h3>
+                            <span class="text-sm font-light">React + Axios + Framer Motion for data-driven interfaces.</span>
+                            <div class="bg-black h-auto w-auto px-3 py-3 mt-2 border border-bcolor rounded-lg">
+                                <code class="font-mono font-light text-sm">npm i react axios framer-motion</code>
+                            </div>
+                        </div>
+
+                        <div class="border border-bcolor p-5 bg-card md:w-auto w-full h-auto rounded-lg">
+                            <h3 class="text-white text-lg font-semibold">3D website</h3>
+                            <span class="text-sm font-light">Three.js + GSAP for interactive scenes with smooth motion.</span>
+                            <div class="bg-black h-auto w-auto px-3 py-3 mt-2 border border-bcolor rounded-lg">
+                                <code class="font-mono font-light text-sm">npm i three gsap</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-8">
+            <div class="container">
+                <div class="flex flex-col">
+                    <h1 class="text-white text-2xl font-semibold">How its works</h1>
+                    <span class="text-sm font-light">Three steps from idea to working code.</span>
+                    <div class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+                        <div class="border border-bcolor bg-card h-auto w-full rounded-lg flex flex-col p-5">
+                            <h1 class="text-orange text-2xl">1</h1>
+                            <h5 class="text-white text-sm font-bold mt-4">Search</h5>
+                            <span class="text-sm font-light">Find the tool you need from the collection.</span>
+                        </div>
+                        <div class="border border-bcolor bg-card h-auto w-full rounded-lg flex flex-col p-5">
+                            <h1 class="text-orange text-2xl">2</h1>
+                            <h5 class="text-white text-sm font-bold mt-4">View Details</h5>
+                            <span class="text-sm font-light">Get install commands, CDN links and docs.</span>
+                        </div>
+                        <div class="border border-bcolor bg-card h-auto w-full rounded-lg flex flex-col p-5">
+                            <h1 class="text-orange text-2xl">3</h1>
+                            <h5 class="text-white text-sm font-bold mt-4">Build</h5>
+                            <span class="text-sm font-light">Copy, paste and start building in minutes.</span>
+                        </div>
+                    
+                    
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-bcolor h-auto">
+        <div class="flex justify-between w-full p-4">
+            <span class="text-sm">&copy; 2026 InstallKit. All rights reserved.</span>
+            <span class="text-sm">Made By <a href="https://github.com/iamluckymali" class="text-white font-quicksand font-medium hover:underline hover:text-orange">Lucky Mali</a></span>
+
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
